@@ -135,7 +135,7 @@ int main(void)
     while (1)
   {
 	  Lcd_cursor(&lcd,0,1);
-	  Lcd_string(&lcd,"KEERTHANA S\n");
+	  Lcd_string(&lcd,"KEERTHANA\n");
 
 
 	  for( int x=0;x<100;x++)
@@ -196,10 +196,12 @@ void assert_failed(uint8_t *file, uint32_t line)
 #endif
 ```
 ## Output screen shots of proteus  :
-<img src="https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/706f3e0f-a1a2-47c2-9a55-945c277e3588"width=475 height=475>
+![Screenshot 2023-09-20 114137](https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/2f8d5628-fa2f-42fd-bc63-0b2a8aa81f2a)
+
 
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
-<img src="https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/118c980d-cb77-466a-9a7a-4a6666df6c1d"width=475 height=475>
+![ex04](https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/92df13ad-2c43-4e4f-b9de-044fdf4ddfdc)
+
 
 ## Result :
 Interfacing a lcd display with ARM microcontroller are simulated in proteus and the results are verified.
