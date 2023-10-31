@@ -2,9 +2,24 @@
 NAME : KEERTHANA S
 REG NO : 212222230066
 ```
-# EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM AND DISPLAY STRING
-## Aim: To Interface a 16X2 LCD display to ARM controller  , and simulate it in Proteus 
-## Components required: STM32 CUBE IDE, Proteus 8 simulator .
+# EXPERIMENT-04 INTERFACING AN16X2 LCD DISPLAY WITH ARM AND DISPLAY STRING
+
+
+## Aim: 
+To Interface a 16X2 LCD display to ARM controller  , and simulate it in Proteus 
+## Components required:
+STM32 CUBE IDE, Proteus 8 simulator .
+## Procedure:
+1. Open a new STM32 Project.
+2. Selecting GPIO Ports
+   
+     PA0 ,PA1 ,PA2 ,PA3 ,PB0 ,PB1 -> GPIO Output
+3. generating the code.
+4. Build Debug and Create 'hex file'.
+5. Open a new Proteus Project.
+6. Select Ports STM32F401RB and LCD 16*2
+7. Connect PA0 to D7 , PA1 to D6 , PA2 to D5 , PA3 to D5 , RS  to  PB0  and  E  to  PB1.
+8. Check the execution of the output using Run option.
 ## Theory 
 The full form of an ARM is an advanced reduced instruction set computer (RISC) machine, and it is a 32-bit processor architecture expanded by ARM holdings. The applications of an ARM processor include several microcontrollers as well as processors. The architecture of an ARM processor was licensed by many corporations for designing ARM processor-based SoC products and CPUs. This allows the corporations to manufacture their products using ARM architecture. Likewise, all main semiconductor companies will make ARM-based SOCs such as Samsung, Atmel, TI etc.
 
@@ -42,80 +57,40 @@ There are some preset commands instructions in LCD, which we need to send to LCD
 
 Hex Code
 
-Command to LCD Instruction Register
+Clear display screen - 01
 
-0F
+Return home - 02 
 
-LCD ON, cursor ON
+Decrement cursor (shift cursor to left) - 04 
 
-01
+Increment cursor (shift cursor to right) -  06 
 
-Clear display screen
+Shift display right -  05
 
-02
+Shift display left -07 
 
-Return home
+Display ON, cursor blinking - 0E 
 
-04
+Force cursor to beginning of first line - 80 
 
-Decrement cursor (shift cursor to left)
+Force cursor to beginning of second line - C0 
 
-06
+2 lines and 5×7 matrix -  38 
 
-Increment cursor (shift cursor to right)
+Cursor line 1 position 3 -  0,2
 
-05
+Display OFF, cursor OFF - 08 
 
-Shift display right
+Jump to second line, position 1 -  C1
 
-07
+Display ON, cursor OFF - 0C
 
-Shift display left
-
-0E
-
-Display ON, cursor blinking
-
-80
-
-Force cursor to beginning of first line
-
-C0
-
-Force cursor to beginning of second line
-
-38
-
-2 lines and 5×7 matrix
-
-83
-
-Cursor line 1 position 3
-
-3C
-
-Activate second line
-
-08
-
-Display OFF, cursor OFF
-
-C1
-
-Jump to second line, position 1
-
-OC
-
-Display ON, cursor OFF
-
-C1
-
-Jump to second line, position 1
-
-C2
-
-Jump to second line, position 2
+Jump to second line, position 2 - C2
  
+
+
+
+
 ## STM 32 CUBE PROGRAM :
 
 ```c
@@ -135,13 +110,13 @@ int main(void)
     while (1)
   {
 	  Lcd_cursor(&lcd,0,1);
-	  Lcd_string(&lcd,"KEERTHANA\n");
+	  Lcd_string(&lcd,"Sanjay\n");
 
 
 	  for( int x=0;x<100;x++)
 	  {
 		  Lcd_cursor(&lcd,1,0);
-		  Lcd_string(&lcd,"212222230066\n");
+		  Lcd_string(&lcd,"212222230132\n");
 	  HAL_Delay (200);
 	  }
 	  Lcd_clear(&lcd);
@@ -195,12 +170,14 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif
 ```
+
+
 ## Output screen shots of proteus  :
-![Screenshot 2023-09-20 114137](https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/2f8d5628-fa2f-42fd-bc63-0b2a8aa81f2a)
+<img src=https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/2f8d5628-fa2f-42fd-bc63-0b2a8aa81f2a width=450 height=450>
 
 
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
-![ex04](https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/92df13ad-2c43-4e4f-b9de-044fdf4ddfdc)
+<img src=https://github.com/Keerthanasampathkumar/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/119477890/92df13ad-2c43-4e4f-b9de-044fdf4ddfdc width=450 height=450>
 
 
 ## Result :
